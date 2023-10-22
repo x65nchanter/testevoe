@@ -15,7 +15,7 @@ public class UserFriendlyException {
             exception.printStackTrace(System.err);
 
         if (verboseLevel.isPrintMessage())
-            System.out.println(UserFriendlyMessage.valueOf(exception).getMessage());
+            System.err.println(UserFriendlyMessage.valueOf(exception).getMessage());
     }
 }
 
