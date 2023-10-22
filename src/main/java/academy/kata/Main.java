@@ -19,7 +19,6 @@ public class Main {
         scanner.close();
     }
 
-    // Input format: arabic operator arabic | roam operator roam
     public static void calc(String input) {
         UserInput processedInput = UserInputProcessor.decode(input);
         Object arithmeticResult = ArithmeticProcessor.evaluate(processedInput.operation, processedInput.alpha, processedInput.beta);
