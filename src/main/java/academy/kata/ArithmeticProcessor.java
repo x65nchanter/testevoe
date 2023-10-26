@@ -10,8 +10,8 @@ public class ArithmeticProcessor {
 
     public static Object evaluate(ArithmeticType arithmeticType, ArithmeticOperation operation, Object alpha, Object beta) {
         return switch (Objects.requireNonNull(arithmeticType)) {
-            case ArithmeticType.ARABIC -> ArabicArithmetic.evaluate(operation, (ArabicNumber) alpha, (ArabicNumber) beta);
-            case ArithmeticType.ROAM -> RomanArithmetic.evaluate(operation, (RomanNumber) alpha, (RomanNumber) beta);
+            case ARABIC -> ArabicArithmetic.evaluate(operation, (ArabicNumber) alpha, (ArabicNumber) beta);
+            case ROAM -> RomanArithmetic.evaluate(operation, (RomanNumber) alpha, (RomanNumber) beta);
         };
     }
 

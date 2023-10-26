@@ -4,10 +4,12 @@ import java.util.Objects;
 
 public class OutputEncoder {
     public static String encode(Object output) {
-        return switch (Objects.requireNonNull(output)) {
-            case RomanNumber number -> RomanNumberEncoder.encode(number);
-            case ArabicNumber number -> ArabicNumberEncoder.encode(number);
-            default -> throw new IllegalStateException("Unexpected value: " + output);
-        };
+        Object o = Objects.requireNonNull(output);
+        if (o instanceof RomanNumber number) {
+            return RomanNumberEncoder.encode(number);
+        } else if (o instanceof ArabicNumber number) {
+            return ArabicNumberEncoder.encode(number);
+        }
+        throw new IllegalStateException("Unexpected value: " + output);
     }
 }

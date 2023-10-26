@@ -26,10 +26,12 @@ public enum UserFriendlyMessage {
     }
 
     public static UserFriendlyMessage valueOf(Exception e) {
-        return switch (Objects.requireNonNull(e)) {
-            case IllegalArgumentException ignored -> UserFriendlyMessage.ARGUMENT_MESSAGE;
-            case ArithmeticException ignored -> UserFriendlyMessage.ARITHMETIC_MESSAGE;
-            default -> UserFriendlyMessage.EMPTY_MESSAGE;
-        };
+        Exception exception = Objects.requireNonNull(e);
+        if (exception instanceof IllegalArgumentException) {
+            return UserFriendlyMessage.ARGUMENT_MESSAGE;
+        } else if (exception instanceof ArithmeticException) {
+            return UserFriendlyMessage.ARITHMETIC_MESSAGE;
+        }
+        return UserFriendlyMessage.EMPTY_MESSAGE;
     }
 }
